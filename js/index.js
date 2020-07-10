@@ -45,11 +45,6 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 const navContent = document.querySelectorAll('nav a')
 navContent.forEach((link, i) =>  link.textContent = siteContent.nav[`nav-item-${i+1}`] )
 
-//change nav content to green
-navContent.forEach(link => {
-  link.style.color = 'green'
-}
-  )
 
   // change cta
 
@@ -106,14 +101,37 @@ navContent.forEach(link => {
     pContent[i].textContent = siteContent.contact[`${pCont[i]}`] 
   })
 
+  //address br
   const addressBr = document.querySelector('.contact p')
   addressBr.textContent = siteContent["contact"]["address"];
   let addyBr = siteContent.contact.address.split(" ")
   let addySplit = `${addyBr[0]} ${addyBr[1]} ${addyBr[2]} ${addyBr[3]} <br> ${addyBr[4]} ${addyBr[5]}`
   addressBr.innerHTML = addySplit;
 
+  //footer
   let footer = document.querySelector('footer p');
   footer.textContent = siteContent.footer.copyright
 
+
+  //append nav
+  let linkOne = document.createElement("a");               
+  linkOne.href = '#'
+  let linkOneName = document.createTextNode("The Past");       
+  linkOne.appendChild(linkOneName);                    
+  document.querySelector("nav").prepend(linkOne);  
   
+  //prepend nav
+  let linkTwo = document.createElement("a");               
+  linkTwo.href = '#'
+  let linkTwoName = document.createTextNode("The Future");       
+  linkTwo.appendChild(linkTwoName);                            
+  document.querySelector("nav").appendChild(linkTwo);
+
+
+  //change nav content to green
+  const navContent1 = document.querySelectorAll('nav a')
+  navContent1.forEach(link => {
+    link.style.color = 'green'
+  }
+    )
 
