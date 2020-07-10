@@ -40,3 +40,80 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//add nav content
+const navContent = document.querySelectorAll('nav a')
+navContent.forEach((link, i) =>  link.textContent = siteContent.nav[`nav-item-${i+1}`] )
+
+//change nav content to green
+navContent.forEach(link => {
+  link.style.color = 'green'
+}
+  )
+
+  // change cta
+
+  //h1
+  const h1Element = document.querySelector('h1')
+  h1Element.textContent = siteContent["cta"]["h1"];
+  let h1BR = siteContent.cta.h1.split(" ")
+  let domIsAwesome = `${h1BR[0]} <br> ${h1BR[1]} <br> ${h1BR[2]}`
+  h1Element.innerHTML = domIsAwesome;
+
+  //button
+
+  const buttonElement = document.querySelector('button')
+  buttonElement.textContent = siteContent['cta']['button'];
+
+  //cta-img
+
+  let ctaImg = document.getElementById("cta-img");
+  ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
+
+  //main-content h4
+  const mainTextContent = document.querySelectorAll(".top-content h4")
+  mainTextContent[0].textContent = siteContent["main-content"]["features-h4"];
+  mainTextContent[1].textContent = siteContent["main-content"]["about-h4"];
+
+  //main-content p
+  const mainContP = document.querySelectorAll(".top-content p")
+  mainContP[0].textContent = siteContent["main-content"]["features-content"];
+  mainContP[1].textContent = siteContent["main-content"]["about-content"];
+
+  //middle-img
+  let midImg = document.getElementById("middle-img");
+  midImg.setAttribute('src', siteContent['main-content']["middle-img-src"]);
+
+  //bottom-content
+  const btmContent = document.querySelectorAll(".bottom-content h4")
+  btmContent[0].textContent = siteContent["main-content"]["services-h4"];
+  btmContent[1].textContent = siteContent["main-content"]["product-h4"];
+  btmContent[2].textContent = siteContent["main-content"]["vision-h4"];
+
+  //bottom-content p
+  const btmContP = document.querySelectorAll(".bottom-content p")
+  btmContP[0].textContent = siteContent["main-content"]["services-content"];
+  btmContP[1].textContent = siteContent["main-content"]["product-content"];
+  btmContP[2].textContent = siteContent["main-content"]["vision-content"];
+
+  //contact
+  const contTitle = document.querySelector(".contact h4")
+  contTitle.textContent = siteContent['contact']['contact-h4'];
+
+  const pContent = document.querySelectorAll('.contact p')
+  pContent.forEach((info, i) =>  {
+    let pCont = ["address", "phone", "email"];
+    pContent[i].textContent = siteContent.contact[`${pCont[i]}`] 
+  })
+
+  const addressBr = document.querySelector('.contact p')
+  addressBr.textContent = siteContent["contact"]["address"];
+  let addyBr = siteContent.contact.address.split(" ")
+  let addySplit = `${addyBr[0]} ${addyBr[1]} ${addyBr[2]} ${addyBr[3]} <br> ${addyBr[4]} ${addyBr[5]}`
+  addressBr.innerHTML = addySplit;
+
+  let footer = document.querySelector('footer p');
+  footer.textContent = siteContent.footer.copyright
+
+  
+
